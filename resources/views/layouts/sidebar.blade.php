@@ -19,7 +19,7 @@
             <a href="{{route('projects.index')}}"> {{ __('projects.projects') }} </a>
         </li>
         <li>
-            <a href="#"> Tasks </a>
+            <a href="{{route('tasks.index')}}"> {{ __('tasks.tasks') }} </a>
         </li>
     </ul>
 </nav>
