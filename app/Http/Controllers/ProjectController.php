@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreProjectRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -23,7 +24,7 @@ class ProjectController extends Controller
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), Project::$createRules, Project::$validationMessages);
+        $validator = Validator::make($request->all(), Project::$createRules);
         if ($validator->fails()){
             DB::rollBack();
             return redirect()

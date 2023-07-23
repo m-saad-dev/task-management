@@ -14,13 +14,14 @@ class Project extends Model
     protected $fillable = ['name'];
 
     public static $createRules = [
-        'name' => 'required|string|unique:projects,name'
+        'name' => 'required|string|max:255|unique:projects,name'
     ];
 
     public static $editRules = [
         'name' => [
             'required',
             'string',
+            'max:255',
         ]
     ];
 }
