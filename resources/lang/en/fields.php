@@ -14,5 +14,6 @@ return [
     */
 
     'name' => 'Name',
+    'project' => 'Project',
 
 ];

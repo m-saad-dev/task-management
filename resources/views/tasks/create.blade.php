@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section("title", trans("menu.tasks"))
+@section('css')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+@stop
 @section('breadcrumb')
     @include('layouts.breadcrumb_segmants', [
         'menu'      => [
@@ -30,3 +33,6 @@
         <!--end::Form-->
     </div>
 @endsection
+@section('after-js')
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+@stop

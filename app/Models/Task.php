@@ -11,16 +11,21 @@ class Task extends Model
 
     protected $table = 'tasks';
 
-    protected $fillable = ['name', 'priority'];
+    protected $fillable = ['name', 'priority', 'project_id'];
 
     public static $createRules = [
         'name' => 'required|string|max:255',
-        'priority' => 'required|integer'
+        'priority' => 'required|integer',
+        'project_id' => 'integer|nullable'
     ];
 
     public static $editRules = [
         'name' => 'required|string|max:255',
-        'priority' => 'required|integer'
+        'project_id' => 'integer|nullable'
     ];
 
+    public function project()
+    {
+        return $this->belongsTo(Project::Class);
+    }
 }

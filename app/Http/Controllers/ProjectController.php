@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -22,16 +23,8 @@ class ProjectController extends Controller
         return view('projects.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreProjectRequest $request)
     {
-        $validator = Validator::make($request->all(), Project::$createRules);
-        if ($validator->fails()){
-            DB::rollBack();
-            return redirect()
-                ->route('projects.create')
-                ->withErrors($validator)
-                ->withInput();
-        }
         try {
             Project::create($request->all());
             return redirect()->route('projects.index')->with('success', 'The Project is Created.');
@@ -45,7 +38,7 @@ class ProjectController extends Controller
         return view('projects.edit', compact('project'));
     }
 
-    public function update(Request $request, $project)
+    public function update(UpdateProjectRequest $request, $project)
     {
         $validationRules = [
             'name' => Project::$editRules['name'] + [Rule::unique('projects', 'name')->ignore($project)],
