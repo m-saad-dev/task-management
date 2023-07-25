@@ -15,11 +15,11 @@
     </div>
     <hr>
     <ul class="list-unstyled">
-        <li class="{{--active--}}">
+        <li class="@if(request()->route()->getName() == 'projects.index') active @endif">
             <a href="{{route('projects.index')}}"> {{ __('projects.projects') }} </a>
         </li>
-        <li>
-            <a href="#"> Tasks </a>
+        <li class="@if(request()->route()->getName() == 'tasks.index') active @endif">
+            <a href="{{route('tasks.index')}}"> {{ __('tasks.tasks') }} </a>
         </li>
     </ul>
 </nav>

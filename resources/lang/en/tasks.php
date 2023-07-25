@@ -13,7 +13,6 @@ return [
     |
     */
 
-    'name' => 'Name',
-    'project' => 'Project',
+    'tasks' => 'Tasks',
 
 ];
