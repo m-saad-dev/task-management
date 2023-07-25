@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name', '255');
             $table->unsignedInteger('priority');
+            $table->unsignedBigInteger('project_id')->nullable();
+            $table->foreign('project_id')->references('id')->on('projects')->nullOnDelete();
             $table->timestamps();
         });
     }
